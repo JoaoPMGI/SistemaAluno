@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Sistema feito com o spring boot baseado em MVC e CRUD"
+    />
+    <meta name="keywords" content="Spring, Sistema, Java" />
+    <meta name="author" content="Joao Pedro Mendes Gomes" />
+    <title>Spring System</title>
+    <link rel="shortcut icon" href="/assets/favico.png" type="image/x-icon" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/style/login.css" />
+
+    <!-- BOOTSTRAP -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <!-- FONTAWESOME -->
+    <script
+      src="https://kit.fontawesome.com/455dc6d8a8.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="login-form">
+      <div class="container">
+        <div class="main-div">
+          <div class="texto-header">
+            <h2>Cadastro de Usuário</h2>
+            <p>Crie o seu usuário para entrar no sistema.</p>
+          </div>
+          <form action="/salvar-usuario" method="post" th:object="${usuario}">
+            <div class="form-group">
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Email..."
+                th:field="*{email}"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Username..."
+                th:field="*{username}"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Password..."
+                th:field="*{senha}"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+            <a class="btn btn-info" th:href="@{/}">Voltar</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

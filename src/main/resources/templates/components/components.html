@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Sistema feito com o spring boot baseado em MVC e CRUD"
+    />
+    <meta name="keywords" content="Spring, Sistema, Java" />
+    <meta name="author" content="Joao Pedro Mendes Gomes" />
+    <title>Spring System</title>
+    <link rel="shortcut icon" href="/assets/favico.png" type="image/x-icon" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/style/index.css" />
+
+    <!-- BOOTSTRAP -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <!-- FONTAWESOME -->
+    <script
+      src="https://kit.fontawesome.com/455dc6d8a8.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header th:fragment="headerC">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" th:href="@{/}">
+            <img class="logo-img" src="/assets/favico.png" alt="logo-sistema" />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="collapse navbar-collapse justify-content-end"
+            id="navbarNav"
+          >
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" th:href="@{/home}"
+                  ><i class="fas fa-house-user"></i> Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" th:href="@{/cadastro-aluno}"
+                  ><i class="fas fa-user-graduate"></i> Cadastrar Aluno</a
+                >
+              </li>
+
+              <a
+                style="cursor: pointer"
+                data-toggle="modal"
+                data-target="#modalPesquisa"
+                class="btn-nav nav-item nav-link"
+                ><i class="fas fa-search"></i> Pesquisar Aluno</a
+              >
+
+              <li class="nav-item">
+                <form action="/logout" method="post">
+                  <button class="nav-link btn-danger" type="submit">Sair</button>
+                </form>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- HEADER -->
+
+    <!-- FOOTER -->
+    <footer th:fragment="footerC">
+      <div class="rodape">
+        <span>Todos os direitos reservado - 2020&copy; joaopmgi.</span>
+      </div>
+    </footer>
+    <!-- FOOTER -->
+
+    <!-- MODAL -->
+    <!-- MODAL bts -->
+    <div
+      th:fragment="modalC"
+      class="modal fade"
+      id="modalPesquisa"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="modalPesquisaLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalPesquisaLabel">
+              Encontre um aluno
+            </h5>
+            <button
+              style="background-color: transparent"
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form action="/pesquisar-aluno" method="post" th:object="${aluno}">
+            <div class="modal-body">
+              <input
+                type="text"
+                th:field="*{nome}"
+                class="form-control"
+                placeholder="Digite o nome do aluno..."
+              />
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">
+                Fechar
+              </button>
+              <button type="submit" class="btn btn-primary">Pesquisar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- BOOTSTRAP -->
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"
+      ></script>
+    </div>
+    <!-- MODAL -->
+    <!-- MODAL -->
+
+    <!-- BOOTSTRAP -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

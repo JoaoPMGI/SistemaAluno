@@ -1,0 +1,20 @@
+.form-cadastro {
+    margin-bottom: 24px;
+}
+
+.row {
+    margin: 15px auto;
+}
+
+.container h3 {
+    margin-top: 25px;
+}
+
+.gerador {
+    margin-top: 10px;
+}
+
+.link-voltar, .link-voltar:hover {
+    text-decoration: none;
+    color: #fff;
+}

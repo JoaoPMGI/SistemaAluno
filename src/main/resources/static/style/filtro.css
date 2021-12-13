@@ -1,0 +1,95 @@
+/*SECTION - FOOTER*/
+.logo-img{
+    width: 30px;
+}
+
+.neo-section {
+    background-size: cover !important;
+    background-color: #674BC3;
+    height: 90vh;
+
+    width: 100%;
+    padding: 30px;
+    position: relative;
+}
+
+.neo-section > .neo-container {
+    position: relative;
+    z-index: 105;
+}
+
+.wm {
+    width: 50%;
+    float: left;
+}
+
+.neo-container {
+    max-width: 1280px;
+    padding: 2% 2%;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+.clear {
+    clear: both;
+}
+
+.center {
+    text-align: center;
+}
+
+.shadow {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 100;
+}
+
+.txt-center{
+    color: #fff;
+    font-size: 3em;
+    font-weight: bold;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.buttons {
+    padding: 2% 15%;
+}
+
+.rodape {
+    color: #fff;
+    background-color: #212529;
+    text-align: center;
+    font-size: 1.25em;
+    padding: 14px;
+}
+
+/*REPONSIVO*/
+@media  screen and (max-width:1000px) {
+    .navbar-nav {
+        text-align: center;
+        text-transform: uppercase;
+    }
+}
+
+@media  screen and (max-width:650px) {
+
+    .wm {
+        width: 100%;
+    }
+
+    .neo-container {
+        margin-top: 80px;
+    }
+
+    .txt-center {
+        font-size: 18px;
+    }
+
+    .rodape {
+        font-size: 12px;
+    }
+}
